@@ -26,5 +26,4 @@ function updateInput(){
   }else{
     inputStats = "released";
   }
-  print(inputStats);
 }
