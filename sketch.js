@@ -1,3 +1,5 @@
+var enemies;
+
 function setup() {
   createCanvas(800, 400);
   rectMode(CENTER);
@@ -9,12 +11,17 @@ function setup() {
   
   setupShot();
 
+  enemies = new Group();
+  setupHole();
+  setupBadBird();
 }
 
 function draw() {
   background(50);
   drawBg();
   fill(255, 0, 0);
+  
+  initInfo();
 
   drawGround();
 
@@ -26,4 +33,10 @@ function draw() {
   
   updateShot();
   drawShot();
+  
+  updateHole();
+  drawHole();
+  
+  updateBadBird();
+  drawBadBird();
 }

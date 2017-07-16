@@ -33,6 +33,7 @@ var doTheShot = function(){
 
 var drawShot = function(){
   if(shotActive){
+    fill(0,0,255);
     ellipse(shot.position.x,shot.position.y,shot.originalWidth,shot.originalHeight);
   }
 }

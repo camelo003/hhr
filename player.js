@@ -1,8 +1,13 @@
 //Player
 var p;
+var pOnGround = false;
+var pLife = 100;
 
 var pJump = function(){
-  p.velocity.y = -10;
+  if(pOnGround){
+    p.velocity.y = -10;
+    pOnGround = false;
+  }
 }
 
 var setupP = function(){
@@ -13,6 +18,7 @@ var updateP = function(){
   p.velocity.y += GRAVITY;
   
   if(p.collide(ground)) {
+    pOnGround = true;
     p.velocity.y = 0;
   }
   
@@ -38,9 +44,19 @@ var updateP = function(){
     pJump();
   }
   
+  if(p.overlap(enemies)){
+    pLife = pLife - 5;
+    if(pLife < 0){
+      pLife = 0;
+    }
+  }
 }
 
 var showP = function(){
   fill(255,102,204);
+  noStroke();
+  rect(p.position.x,p.position.y,p.originalWidth,p.originalHeight*(pLife/100));
+  noFill();
+  stroke(0);
   rect(p.position.x,p.position.y,p.originalWidth,p.originalHeight);
 }
