@@ -1,16 +1,19 @@
 function setup() {
   createCanvas(800, 400);
   rectMode(CENTER);
+  ellipseMode(CENTER);
 
   setupP();
 
   setupWorld();
+  
+  setupShot();
 
 }
 
 function draw() {
   background(50);
-  line(width - ((frameCount * 10) % width), 0, width - ((frameCount * 10) % width), height * 0.9);
+  drawBg();
   fill(255, 0, 0);
 
   drawGround();
@@ -20,4 +23,7 @@ function draw() {
 
   updateP();
   showP();
+  
+  updateShot();
+  drawShot();
 }

@@ -1,7 +1,9 @@
 //Player
 var p;
-var JUMP = 10;
 
+var pJump = function(){
+  p.velocity.y = -10;
+}
 
 var setupP = function(){
   p = createSprite(width/2,height/2,25,75);
@@ -15,7 +17,7 @@ var updateP = function(){
   }
   
   if(inputStats=="hit"){
-    p.velocity.y = -JUMP;
+    doTheShot();
   }
   
   if(inputStats=="released"){
@@ -30,6 +32,10 @@ var updateP = function(){
   }
   if(p.position.x>width*0.8 && inputStats=="hold"){
     p.velocity.x = 0;
+  }
+  
+  if(inputStats=="justReleased"){
+    pJump();
   }
   
 }

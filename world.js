@@ -10,4 +10,8 @@ var setupWorld = function(){
   ground = createSprite(width/2,groundLine+(height-groundLine)/2,width,height-groundLine);
 }
 
+var drawBg = function(){
+  line(width - ((frameCount * 10) % width), 0, width - ((frameCount * 10) % width), height * 0.9);
+}
+
 var GRAVITY = 0.4;
